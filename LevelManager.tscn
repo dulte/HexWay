@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://LevelManager.gd" type="Script" id=1]
+
+[node name="LevelManager" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="WinLabel" type="Label" parent="."]
+visible = false
+margin_left = 375.368
+margin_top = 36.1579
+margin_right = 428.368
+margin_bottom = 50.1579
+rect_scale = Vector2( 5, 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.435294, 1 )
+text = "You win!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
