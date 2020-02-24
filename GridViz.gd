@@ -10,6 +10,9 @@ var start_color = Color(0,0,255)
 var success_color = Color(0,255,255)
 var fail_color = Color(255,0,0)
 
+var success_end_color = Color(0.6, 0.8, 0.2, 1)
+var fail_end_color = Color(1, 0.65, 0, 1)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -45,6 +48,12 @@ func color_success():
     
 func color_fail():
     get_node("Area2D/MainPoly").color = fail_color
+
+func color_success_end():
+    get_node("Area2D/MainPoly").color = success_end_color
+    
+func color_fail_end():
+    get_node("Area2D/MainPoly").color = fail_end_color
     
 func make_end_point():
     get_node("Area2D/MainPoly").color = end_color

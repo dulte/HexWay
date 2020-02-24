@@ -144,7 +144,7 @@ func get_end_points():
             best_dist = pair[2]
             best_start = pair[0]
             best_end = pair[1]
-    print([best_start, best_end, best_dist])      
+    #print([best_start, best_end, best_dist])      
     return [best_start, best_end, best_dist]
         
 
@@ -218,8 +218,23 @@ func check_win():
                 return false
         
         return true
-            
-        
+ 
+func draw_end_board():
+	update_viz_colors()
+
+	for step in player_path:
+		var cell = board[step]
+		var viz = board_viz[step]
+		
+		if cell.laser_val%2 == 0:
+		    viz.color_success_end()
+		else:
+		    viz.color_fail_end()  
+
+	if len(endpoints) != 0:
+        board_viz[endpoints[0]].color_start()
+        board_viz[endpoints[1]].color_end()  
+    
         
 func update_color():
     for index in board_viz.keys():

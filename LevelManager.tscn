@@ -19,3 +19,11 @@ text = "You win!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Button" type="Button" parent="."]
+visible = false
+margin_left = 39.0
+margin_top = 517.0
+margin_right = 195.0
+margin_bottom = 555.0
+text = "Play again!"
