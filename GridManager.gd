@@ -190,10 +190,16 @@ func make_move(coord):
     
     
         
-    if cell_pos == endpoints[1]:
-        return [true, check_win()]
+    #if cell_pos == endpoints[1]:
+    #    return [true, check_win()]
         
     var neigh = player_cell.get_all_adjacent()
+    for n in neigh:
+        var p = n.axial_coords
+        if cell_pos == endpoints[1] and p == player_path[-1]:
+            return [true, check_win()]
+        
+    #var neigh = player_cell.get_all_adjacent()
     for n in neigh:
         var p = n.axial_coords
         if p == player_path[-1]:
