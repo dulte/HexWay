@@ -181,6 +181,15 @@ func make_move(coord):
     if not(cell_pos in board.keys()):
         return [false, null]
         
+    if cell_pos == player_path[-1] and len(player_path) > 1:
+        player_path.pop_back()
+        return [true, null]
+        
+    if cell_pos in player_path:
+        return [false, null]
+    
+    
+        
     if cell_pos == endpoints[1]:
         return [true, check_win()]
         
@@ -220,18 +229,18 @@ func check_win():
         return true
  
 func draw_end_board():
-	update_viz_colors()
+    update_viz_colors()
 
-	for step in player_path:
-		var cell = board[step]
-		var viz = board_viz[step]
-		
-		if cell.laser_val%2 == 0:
-		    viz.color_success_end()
-		else:
-		    viz.color_fail_end()  
+    for step in player_path:
+        var cell = board[step]
+        var viz = board_viz[step]
+        
+        if cell.laser_val%2 == 0:
+            viz.color_success_end()
+        else:
+            viz.color_fail_end()  
 
-	if len(endpoints) != 0:
+    if len(endpoints) != 0:
         board_viz[endpoints[0]].color_start()
         board_viz[endpoints[1]].color_end()  
     
