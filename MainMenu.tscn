@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Art/hex.png" type="Texture" id=1]
 [ext_resource path="res://Font/URW Impact W01 Bold Condensed.ttf" type="DynamicFontData" id=2]
@@ -6,8 +6,13 @@
 [ext_resource path="res://Art/diff1_btn.png" type="Texture" id=4]
 [ext_resource path="res://Art/size3_btn.png" type="Texture" id=5]
 [ext_resource path="res://Art/restart_btn.png" type="Texture" id=6]
+[ext_resource path="res://Art/tutorial_btn.png" type="Texture" id=7]
 [ext_resource path="res://Art/quit_btn.png" type="Texture" id=8]
 [ext_resource path="res://Art/play_btn.png" type="Texture" id=9]
+[ext_resource path="res://Art/tut_bilde1.PNG" type="Texture" id=10]
+[ext_resource path="res://Art/cancel_btn.png" type="Texture" id=11]
+[ext_resource path="res://Art/next_btn.png" type="Texture" id=12]
+[ext_resource path="res://Art/tut_screen.png" type="Texture" id=13]
 
 [sub_resource type="DynamicFont" id=2]
 size = 120
@@ -21,6 +26,10 @@ animations = [ {
 "name": "default",
 "speed": 1.0
 } ]
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 2 )
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 3 )
@@ -69,20 +78,27 @@ margin_bottom = 553.0
 texture_normal = ExtResource( 5 )
 
 [node name="QuitButton" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+visible = false
 margin_top = 563.0
 margin_right = 512.0
 margin_bottom = 691.0
 texture_normal = ExtResource( 8 )
 
+[node name="TutorialButton" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+margin_top = 563.0
+margin_right = 512.0
+margin_bottom = 691.0
+texture_normal = ExtResource( 7 )
+
 [node name="BackHexSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 292.344, 103.456 )
+position = Vector2( 314.336, 84.7228 )
 rotation = -0.495866
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 1 )
 
 [node name="BackHexSprite2" type="AnimatedSprite" parent="."]
-position = Vector2( 732.766, 102.844 )
-rotation = -0.495866
+position = Vector2( 714.847, 81.6671 )
+rotation = -0.680944
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 1 )
 
@@ -108,3 +124,60 @@ margin_top = 138.0
 margin_right = 512.0
 margin_bottom = 266.0
 texture_normal = ExtResource( 8 )
+
+[node name="Tutorial" type="TextureRect" parent="."]
+visible = false
+margin_left = 365.0
+margin_top = 45.0
+margin_right = 965.0
+margin_bottom = 1069.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="TextureButton" parent="Tutorial"]
+margin_left = 150.0
+margin_top = 800.0
+margin_right = 662.0
+margin_bottom = 928.0
+rect_scale = Vector2( 0.6, 0.6 )
+texture_normal = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CancelButton" type="TextureButton" parent="Tutorial"]
+margin_left = 150.0
+margin_top = 900.0
+margin_right = 662.0
+margin_bottom = 1028.0
+rect_scale = Vector2( 0.6, 0.6 )
+texture_normal = ExtResource( 11 )
+
+[node name="TutPic" type="TextureRect" parent="Tutorial"]
+margin_left = 83.3324
+margin_top = 78.8102
+margin_right = 803.332
+margin_bottom = 528.81
+rect_scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tutorial_Label" type="Label" parent="Tutorial"]
+margin_left = 61.2999
+margin_top = 386.4
+margin_right = 534.3
+margin_bottom = 743.4
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.466667, 0.466667, 0.466667, 1 )
+text = "Test text"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
