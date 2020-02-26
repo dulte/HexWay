@@ -16,8 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Hexway"
-run/main_scene="res://LevelManager.tscn"
+run/main_scene="res://MainMenu.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/resizable=false
+window/stretch/mode="2d"
 
 [rendering]
 

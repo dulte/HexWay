@@ -1,0 +1,110 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Art/hex.png" type="Texture" id=1]
+[ext_resource path="res://Font/URW Impact W01 Bold Condensed.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://Art/diff1_btn.png" type="Texture" id=4]
+[ext_resource path="res://Art/size3_btn.png" type="Texture" id=5]
+[ext_resource path="res://Art/restart_btn.png" type="Texture" id=6]
+[ext_resource path="res://Art/quit_btn.png" type="Texture" id=8]
+[ext_resource path="res://Art/play_btn.png" type="Texture" id=9]
+
+[sub_resource type="DynamicFont" id=2]
+size = 120
+outline_color = Color( 0.639216, 0.360784, 0.360784, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1278.0
+margin_bottom = 745.0
+rect_scale = Vector2( 0.8, 0.8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 383.0
+margin_top = 27.0
+margin_right = 895.0
+margin_bottom = 718.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 512.0
+margin_bottom = 139.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.690196, 0.690196, 0.690196, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "HexWay"
+align = 1
+
+[node name="PlayButton" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+margin_top = 149.0
+margin_right = 512.0
+margin_bottom = 277.0
+texture_normal = ExtResource( 9 )
+
+[node name="DifficultyButton" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+margin_top = 287.0
+margin_right = 512.0
+margin_bottom = 415.0
+texture_normal = ExtResource( 4 )
+
+[node name="SizeButton" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+margin_top = 425.0
+margin_right = 512.0
+margin_bottom = 553.0
+texture_normal = ExtResource( 5 )
+
+[node name="QuitButton" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+margin_top = 563.0
+margin_right = 512.0
+margin_bottom = 691.0
+texture_normal = ExtResource( 8 )
+
+[node name="BackHexSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 292.344, 103.456 )
+rotation = -0.495866
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 1 )
+
+[node name="BackHexSprite2" type="AnimatedSprite" parent="."]
+position = Vector2( 732.766, 102.844 )
+rotation = -0.495866
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 1 )
+
+[node name="GameBtnContainer" type="VBoxContainer" parent="."]
+visible = false
+margin_left = 17.0
+margin_top = 476.361
+margin_right = 529.0
+margin_bottom = 742.361
+rect_scale = Vector2( 0.4, 0.4 )
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartButton" type="TextureButton" parent="GameBtnContainer"]
+margin_right = 512.0
+margin_bottom = 128.0
+texture_normal = ExtResource( 6 )
+
+[node name="QuitButton" type="TextureButton" parent="GameBtnContainer"]
+margin_top = 138.0
+margin_right = 512.0
+margin_bottom = 266.0
+texture_normal = ExtResource( 8 )

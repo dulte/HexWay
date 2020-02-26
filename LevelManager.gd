@@ -4,21 +4,32 @@ extends Node2D
 var boardObj = preload("res://GridManager.tscn")
 var board = null
 
-var size = 50
-var board_size = 5
+var size = 45
+var board_size = 3
 
 var difficuly = 5
 
 var game_over = false
 
+var sceen_size = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+    pass
+    #$Button.connect("button_down", self, "restart")
+    #make_board()
+    
+func start_game(board_size_, difficulty_, screen_size_):
+    board_size = board_size_
+    difficuly = difficulty_
+    sceen_size = screen_size_
     $Button.connect("button_down", self, "restart")
     make_board()
     
 func make_board():
     var b = boardObj.instance()
-    b.set_options(board_size, difficuly, size)
+    b._ready()
+    b.set_options(board_size, difficuly, size, sceen_size)
     self.add_child(b)
     b.create_board()
     
@@ -52,8 +63,8 @@ func _unhandled_input(event):
                             else:
                                 get_node("WinLabel").text  = "You Lose!"
                                 print("Lose")
-                            $WinLabel.show()
-                            $Button.show()
+                            #$WinLabel.show()
+                            #$Button.show()
                             game_over = true
             if event.button_index == BUTTON_RIGHT:
                 if event.pressed: 

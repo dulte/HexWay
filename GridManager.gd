@@ -35,10 +35,11 @@ func _ready():
 #For board generation
 ###################
     
-func set_options(boardsize_, difficulty_, size_):
+func set_options(boardsize_, difficulty_, size_, screen_size_):
     size = size_
     cell_size = float(size)/50.0
     board_size = boardsize_
+    SCREEN_SIZE = screen_size_
 
     difficuly = difficulty_
     
